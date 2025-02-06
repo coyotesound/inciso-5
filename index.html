@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel de Imágenes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .carousel-container {
+            position: relative;
+            width: 400px;
+            height: 500px;
+            overflow: hidden;
+        }
+        .carousel {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            transform: scale(0.8);
+        }
+        .carousel img.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <div class="carousel">
+            <img src="IMAGENES/1.jpg" class="active">
+            <img src="IMAGENES/2.jpg">
+            <img src="IMAGENES/3.jpg">
+            <img src="IMAGENES/4.jpg">
+            <img src="IMAGENES/5.jpg">
+            <img src="IMAGENES/6.jpg">
+            <img src="IMAGENES/7.jpg">
+            <img src="IMAGENES/8.jpg">
+            <img src="IMAGENES/8.png">
+            <img src="IMAGENES/9.png">
+            <img src="IMAGENES/10.jpg">
+            <img src="IMAGENES/11.jpg">
+            <img src="IMAGENES/12.jpg">
+            <img src="IMAGENES/13.png">
+            <img src="IMAGENES/14.png">
+            <img src="IMAGENES/15.png">
+            <img src="IMAGENES/16.jpg">
+            <img src="IMAGENES/17.jpg">
+            <img src="IMAGENES/18.jpg">
+            <img src="IMAGENES/19.jpg">
+            <img src="IMAGENES/12.png">
+            <img src="IMAGENES/13.png">
+            <img src="IMAGENES/14.jpg">
+            <img src="IMAGENES/15.jpg">
+            <img src="IMAGENES/1.png">
+            <img src="IMAGENES/2.png">
+            <img src="IMAGENES/3.png">
+            <img src="IMAGENES/4.png">
+            <img src="IMAGENES/5.png">
+            <img src="IMAGENES/6.png">
+        </div>
+    </div>
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll(".carousel img");
+        const totalImages = images.length;
+        
+        function showNextImage() {
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].classList.add("active");
+        }
+        
+        setInterval(showNextImage, 5000);
+    </script>
+</body>
+</html>
